@@ -1,4 +1,6 @@
 // import 'package:authui/components/Button.dart';
+import 'package:authui/components/ButtonFilled.dart';
+import 'package:authui/components/ButtonUnfilled.dart';
 import 'package:flutter/material.dart';
 
 void hello() {
@@ -12,15 +14,47 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/background.png"),
-              fit: BoxFit.cover
-            )
-          ),
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(image: 
+                  AssetImage("assets/images/background.png"),
+                  fit: BoxFit.cover
+                ))
+              ),
+              const Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image(image: AssetImage("assets/images/logo.png")),
+                    SizedBox(height: 40.0),
+                    Button(title: "Login", onPressed: hello,),
+                    SizedBox(height: 20.0),
+                    UnfilledButton(title: "Register", onPressed: hello),
+                    SizedBox(height: 20.0,),
+                    Text(
+                      "Continue as a guest!",
+                      style: TextStyle(
+                        color: Color(0xFF34C2C1),
+                        fontSize: 15,
+                        fontFamily: "Urbanist",
+                        fontWeight: FontWeight.w700,
+                        decorationStyle: TextDecorationStyle.solid,
+                        height: 0,
+                      ),
+                      )
+                  ],
+                ),
+                )
+              )
+          ],
+        )
         ),
-      )
     );
   }
 }
