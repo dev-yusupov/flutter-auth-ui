@@ -1,6 +1,7 @@
 import 'package:authui/components/ButtonFilled.dart';
 import 'package:authui/components/ButtonUnfilled.dart';
 import 'package:authui/pages/login.dart';
+import 'package:authui/pages/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,6 +12,12 @@ class WelcomePage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const LoginPage()),
+    );
+  }
+  void _navigateToRegistrationPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const RegistrationPage()),
     );
   }
 
@@ -48,7 +55,7 @@ class WelcomePage extends StatelessWidget {
                   UnfilledButton(
                     title: "Register",
                     onPressed: () {
-                      _navigateToLoginPage(context);
+                      _navigateToRegistrationPage(context);
                     },
                   ),
                   const SizedBox(
